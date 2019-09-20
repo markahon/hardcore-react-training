@@ -4,6 +4,7 @@ import React, { useState, memo } from "react";
 import posed from "react-pose";
 import styles from "./Person.pcss";
 import Button from "./Button";
+import { Link } from "react-router-dom";
 
 const Person = props => {
   const { person, firePerson } = props;
@@ -79,8 +80,12 @@ const Person = props => {
       onDragEnd={onDragEnd}
     >
       <div>
-        <strong>{person.lastName}</strong>, {person.firstName} - (
-        {person.age.toFixed(1)} vuotta)
+        <Link to={`/person/${person.id}`}>
+          <strong>{person.lastName}</strong>, {person.firstName}{" "}
+        </Link>
+        - ({person.age.toFixed(1)} vuotta)
+      </div>
+      <div>
         <Button
           onClick={() => firePerson(person.id)}
           fire

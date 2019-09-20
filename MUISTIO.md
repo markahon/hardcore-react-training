@@ -78,3 +78,20 @@ graafi: Action -> Reducer -> Store -> View -> taas Action
 
 - react-router
 - reach-router
+
+## Näihin kaikkiin tullaan törmäämään
+
+- hookit
+- render propsit
+- higher order functionit ja higher order componentint
+
+## Tulevaisuus
+
+- code splitting: tulossa Suspense tähän käyttöön
+- Suspense myös mm. datan hakemiseen
+- code splitting: React.lazy + Suspense webpackin dynaamisten importtien sijaan
+
+## Virheenhallinta
+
+- react error boundaries reactjs dokumentaatio
+- react-error-boundary
