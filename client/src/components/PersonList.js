@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import Person from "./Person";
 
 // Jos ei ole TypeScriptiä
@@ -10,7 +10,7 @@ import styles from "./PersonList.pcss";
 const PersonList = props => {
   const { persons, showMetaData, ...rest } = props;
 
-  let avgAge = persons.reduce((a, p) => a + p.age, 0) / persons.count();
+  let avgAge = persons.reduce((a, p) => a + (p.age || 0), 0) / persons.count();
   avgAge = avgAge.toFixed(1);
 
   return (
@@ -25,15 +25,14 @@ const PersonList = props => {
       {persons
         .sortBy(p => p.firstName)
         .sortBy(p => p.lastName)
-        .map(p => (
-          <Person key={p.id} {...rest} person={p} />
-        ))}
+        .map(p => <Person key={p.id} {...rest} person={p} />)
+        .toList()}
     </div>
   );
 };
 
 PersonList.propTypes = {
-  persons: ImmutablePropTypes.list.isRequired,
+  persons: ImmutablePropTypes.map.isRequired,
   showMetaData: PropTypes.bool.isRequired
 };
 
@@ -41,4 +40,4 @@ PersonList.defaultProps = {
   showMetaData: false
 };
 
-export default PersonList;
+export default memo(PersonList);

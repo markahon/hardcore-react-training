@@ -14,7 +14,7 @@ import styles from "./App.pcss";
 
 console.debug("app styles map", styles);
 
-const App = props => {
+const IndexPage = props => {
   const dispatch = useDispatch();
   const persons = useSelector(state => state.person.get("persons"));
   const isLoading = useSelector(state => state.ui.get("loading") > 0);
@@ -72,4 +72,4 @@ const App = props => {
   );
 };
 
-export default App;
+export default IndexPage;

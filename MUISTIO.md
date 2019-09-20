@@ -53,6 +53,10 @@
 
 graafi: Action -> Reducer -> Store -> View -> taas Action
 
+### Optimointi
+
+- reselect selectoreiden optimointiin tarvittaessa
+
 ### Vaihtoehtoja
 
 - redux-saga
@@ -69,3 +73,8 @@ graafi: Action -> Reducer -> Store -> View -> taas Action
   -- type
   -- payload
   -- jos virhe, payload on Error, error: true
+
+## Routing
+
+- react-router
+- reach-router

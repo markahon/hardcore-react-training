@@ -1,8 +1,9 @@
 import cx from "classnames";
 import { decay, inertia } from "popmotion";
-import React, { useState } from "react";
+import React, { useState, memo } from "react";
 import posed from "react-pose";
 import styles from "./Person.pcss";
+import Button from "./Button";
 
 const Person = props => {
   const { person, firePerson } = props;
@@ -20,7 +21,7 @@ const Person = props => {
     hoverable: true,
     pressable: true,
     init: { scale: 1 },
-    before: { y: 200, opacity: 0 },
+    before: { y: 0, opacity: 1 },
     press: { scale: 1.05 },
     hover: { scale: 1.05 },
     drag: {
@@ -80,12 +81,16 @@ const Person = props => {
       <div>
         <strong>{person.lastName}</strong>, {person.firstName} - (
         {person.age.toFixed(1)} vuotta)
-      </div>
-      <div>
-        <button onClick={() => firePerson(person.id)}>vapauta</button>
+        <Button
+          onClick={() => firePerson(person.id)}
+          fire
+          disabled={person.isBeingFired}
+        >
+          vapauta
+        </Button>
       </div>
     </PersonContainer>
   );
 };
 
-export default Person;
+export default memo(Person);
