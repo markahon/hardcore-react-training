@@ -1,0 +1,29 @@
+:global {
+  /* minä olen kommentti, saatan päätyä css:ään riippuen webpack konffista varmaankin
+     // ei toimi postcss kanssa
+   */
+  @import "../../node_modules/normalize.css/normalize.css";
+
+  body {
+    font-family: "Comic Sans MS";
+    font-size: 18px;
+    line-height: 20px;
+    padding: 1rem 2rem;
+
+    &:after {
+      content: "";
+      opacity: 0.2;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      position: absolute;
+      z-index: -1;
+      background-image: url("../assets/money.jpg");
+    }
+  }
+
+  .centered {
+    text-align: center;
+  }
+}

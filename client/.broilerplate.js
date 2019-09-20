@@ -58,7 +58,7 @@ module.exports = target => {
       if (env === "production") {
         return build;
       }
-      return build.setIn(["base", "devtool"], "cheap-module-eval-source-map");
+      return build.setIn(["base", "devtool"], "eval-source-map");
     },
     // ensureFiles(false),
     compile(env, target),
